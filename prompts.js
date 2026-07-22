@@ -1497,7 +1497,7 @@ export const categories = [
             { "text": "{p1}, besa con desesperación todo el cuerpo de {p2} desde el ombligo hasta la barbilla.", "tone": "hot" },
             { "text": "{p1}, arranca literalmente la camisa o camiseta de {p2} con tus propias manos sin piedad.", "tone": "hot" }
         ]
-    }
+    },
     {
         key: 'mix',
         label: 'Mix',

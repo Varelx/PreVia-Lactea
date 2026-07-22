@@ -1,0 +1,223 @@
+﻿:root {
+    --bg-color: #0f172a;
+    --surface-color: #1e293b;
+    --surface-hover: #334155;
+    --text-color: #f8fafc;
+    --text-muted: #94a3b8;
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --hot-color: #ec4899;
+    --primary-rgb: 99, 102, 241;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.screen {
+    display: none;
+    flex-direction: column;
+    flex: 1;
+}
+
+.screen.active {
+    display: flex;
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.app-header h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.muted {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.tiles {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.game-tile {
+    background: var(--surface-color);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    text-align: left;
+    color: var(--text-color);
+    width: 100%;
+}
+
+.game-tile:hover {
+    background: var(--surface-hover);
+    transform: translateY(-2px);
+}
+
+.tile-visual {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.bg-1 { background: rgba(59, 130, 246, 0.2); }
+.bg-2 { background: rgba(168, 85, 247, 0.2); }
+.bg-3 { background: rgba(234, 179, 8, 0.2); }
+.bg-4 { background: rgba(239, 68, 68, 0.2); }
+.bg-7 { background: rgba(236, 72, 153, 0.2); }
+
+.tile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.tile-info strong {
+    font-size: 1.1rem;
+}
+
+/* Pantalla de juego */
+.game-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.tone-selector {
+    display: flex;
+    background: var(--surface-color);
+    border-radius: 20px;
+    padding: 4px;
+}
+
+.tone-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.tone-btn.active {
+    background: var(--primary);
+    color: white;
+}
+
+.tone-btn.hot.active {
+    background: var(--hot-color);
+}
+
+.game-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.question-card {
+    background: var(--surface-color);
+    border-radius: 24px;
+    padding: 32px 24px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 280px;
+    justify-content: space-between;
+}
+
+.prompt-category-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: rgba(var(--primary-rgb), 0.2);
+    color: #818cf8;
+    margin-bottom: 16px;
+}
+
+.question {
+    font-size: 1.35rem;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.answer-actions {
+    width: 100%;
+}
+
+.answer-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 16px;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.answer-btn:hover {
+    background: var(--primary-hover);
+}

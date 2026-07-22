@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PreVia Láctea</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Pantalla de Selección de Juegos -->
+        <div id="homeScreen" class="screen active">
+            <header class="app-header">
+                <h1>PreVia Láctea 🥛🔥</h1>
+                <p>Elige tu modo de juego</p>
+            </header>
+            <div class="tiles">
+                <button class="game-tile" data-target="yonunca">
+                    <div class="tile-visual bg-1">🍶</div>
+                    <div class="tile-info">
+                        <strong>Yo Nunca</strong>
+                        <span class="muted">La verdad absoluta</span>
+                    </div>
+                </button>
+                <button class="game-tile" data-target="prefieres">
+                    <div class="tile-visual bg-2">⚖️</div>
+                    <div class="tile-info">
+                        <strong>Qué Prefieres</strong>
+                        <span class="muted">Dilemas imposibles</span>
+                    </div>
+                </button>
+                <button class="game-tile" data-target="retos">
+                    <div class="tile-visual bg-3">🎯</div>
+                    <div class="tile-info">
+                        <strong>Retos</strong>
+                        <span class="muted">Acción o trago</span>
+                    </div>
+                </button>
+                <button class="game-tile" data-target="verdad">
+                    <div class="tile-visual bg-4">🔥</div>
+                    <div class="tile-info">
+                        <strong>Verdad o Bebe</strong>
+                        <span class="muted">Sin secretos</span>
+                    </div>
+                </button>
+                <!-- NUEVO: Tarjeta de Mix -->
+                <button class="game-tile" data-target="mix">
+                    <div class="tile-visual bg-7">🔀</div>
+                    <div class="tile-info">
+                        <strong>Mix</strong>
+                        <span class="muted">Un poco de todo</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Pantalla de Juego -->
+        <div id="gameScreen" class="screen">
+            <header class="game-header">
+                <button id="btnBack" class="icon-btn">← Volver</button>
+                <h2 id="gameTitle">Modo</h2>
+                <div class="tone-selector">
+                    <button class="tone-btn active" data-tone="normal">Normal</button>
+                    <button class="tone-btn hot" data-tone="hot">Hot 🔥</button>
+                </div>
+            </header>
+
+            <main class="game-main">
+                <div class="question-card">
+                    <!-- NUEVO: Etiqueta de categoría para identificar el prompt -->
+                    <div id="promptCategoryBadge" class="prompt-category-badge" style="display: none;"></div>
+                    
+                    <p id="activeQuestion" class="question">Cargando...</p>
+                    
+                    <div class="answer-actions">
+                        <button id="btnNextPrompt" class="answer-btn">Siguiente pregunta →</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="prompts.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

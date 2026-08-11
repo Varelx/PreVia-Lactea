@@ -28,10 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
         themeToggle.textContent = document.body.classList.contains('theme-light') ? '☀️' : '🌙';
     });
 
-    // Seleccionar Juego (Asegura capturar el dataset incluso si se hace clic en hijos)
+    // Seleccionar Juego
     tiles.forEach(tile => {
         tile.addEventListener('click', (e) => {
             const button = e.currentTarget;
+            
+            // Quitamos el foco explícitamente para evitar el error de accesibilidad de aria-hidden
+            button.blur(); 
+
             const target = button.dataset.target;
             if (target) {
                 openGame(target);
@@ -195,3 +199,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+

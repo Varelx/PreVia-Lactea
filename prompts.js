@@ -1279,4 +1279,3 @@ export const categories = [
         ]
     }
 ];
-

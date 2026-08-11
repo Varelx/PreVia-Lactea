@@ -28,11 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
         themeToggle.textContent = document.body.classList.contains('theme-light') ? '☀️' : '🌙';
     });
 
-    // Seleccionar Juego
+    // Seleccionar Juego (Asegura capturar el dataset incluso si se hace clic en hijos)
     tiles.forEach(tile => {
-        tile.addEventListener('click', () => {
-            const target = tile.dataset.target;
-            openGame(target);
+        tile.addEventListener('click', (e) => {
+            const button = e.currentTarget;
+            const target = button.dataset.target;
+            if (target) {
+                openGame(target);
+            }
         });
     });
 
@@ -50,6 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
             gameTitle.textContent = category.label;
             gameSubtitle.textContent = `Modo actual: ${currentTone.toUpperCase()}`;
             renderPrompt();
+        } else {
+            gameTitle.textContent = "Juego";
+            gameSubtitle.textContent = `Modo actual: ${currentTone.toUpperCase()}`;
+            activeQuestion.innerHTML = "Categoría no encontrada o en desarrollo.";
         }
 
         gamePicker.setAttribute('aria-hidden', 'true');
@@ -83,25 +90,23 @@ document.addEventListener('DOMContentLoaded', () => {
         let pool = [];
 
         if (currentCategoryKey === 'mix') {
-            // Recorre todas las categorías EXCEPTO 'mix' y 'interaccion'
             const otherCategories = categories.filter(c => c.key !== 'mix' && c.key !== 'interaccion');
 
             otherCategories.forEach(cat => {
-                // Filtra las frases que coincidan con el tono actual
-                const validPrompts = cat.prompts.filter(item => item.tone === currentTone);
-                
-                validPrompts.forEach(item => {
-                    pool.push({
-                        text: item.text,
-                        tone: item.tone
+                if (cat.prompts && Array.isArray(cat.prompts)) {
+                    const validPrompts = cat.prompts.filter(item => item.tone === currentTone);
+                    validPrompts.forEach(item => {
+                        pool.push({
+                            text: item.text,
+                            tone: item.tone
+                        });
                     });
-                });
+                }
             });
         } else {
             const category = categories.find(c => c.key === currentCategoryKey);
-            if (!category) return 'Selecciona un juego válido.';
+            if (!category || !category.prompts) return 'Selecciona un juego válido o revisa las categorías.';
 
-            // Filtrado estricto por el tono actual seleccionado
             const filtered = category.prompts.filter(item => item.tone === currentTone);
             pool = filtered;
         }
@@ -190,4 +195,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-

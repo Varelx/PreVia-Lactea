@@ -5,6 +5,14 @@ let currentTone = 'normal';
 let seenPrompts = [];
 let players = [];
 
+function updateTheme(tone) {
+    if (tone === 'hot') {
+        document.body.classList.add('theme-hot');
+    } else {
+        document.body.classList.remove('theme-hot');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     currentCategoryKey = urlParams.get('cat') || 'mix';
@@ -26,10 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (category) {
         gameTitle.textContent = category.label;
         gameSubtitle.textContent = `Modo actual: ${currentTone.toUpperCase()}`;
+        updateTheme(currentTone);
         renderPromptWithAnimation();
     } else {
         gameTitle.textContent = "Juego";
         gameSubtitle.textContent = `Modo actual: ${currentTone.toUpperCase()}`;
+        updateTheme(currentTone);
         activeQuestion.innerHTML = "Categoría no encontrada.";
     }
 
@@ -47,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             button.classList.add('active');
             currentTone = button.dataset.tone || 'normal';
             gameSubtitle.textContent = `Modo actual: ${currentTone.toUpperCase()}`;
+            updateTheme(currentTone);
             seenPrompts = [];
             renderPromptWithAnimation();
         });

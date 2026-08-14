@@ -1,4 +1,7 @@
 ﻿:root {
+  --primary-color: #3b82f6; /* Normal (Azul) */
+  --card-bg-gradient: linear-gradient(145deg, #161f30 0%, #0d121c 100%);
+
   --bg0: #ffffff;
   --bg1: #ffffff;
   --bg2: #ffffff;
@@ -22,6 +25,12 @@
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   --anim-fast: 150ms ease;
   --anim-medium: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Cuando cambiemos a modo HOT */
+.theme-hot {
+  --primary-color: #ef4444; /* Rojo/Naranja */
+  --card-bg-gradient: linear-gradient(145deg, #301616 0%, #1c0d0d 100%);
 }
 
 * {
@@ -386,7 +395,7 @@ body {
 .dopamine-card {
   position: relative;
   width: 100%;
-  background: linear-gradient(145deg, #161f30 0%, #0d121c 100%);
+  background: var(--card-bg-gradient);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 16px;
   padding: 24px 20px;
@@ -416,7 +425,7 @@ body {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
 }
 
 .question-shell {
@@ -447,8 +456,8 @@ body {
 }
 
 .dopamine-btn {
-  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
-  color: #000000;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 100%);
+  color: #ffffff;
   width: 100%;
   padding: 12px;
   font-size: 0.9rem;
@@ -456,14 +465,14 @@ body {
   min-height: 44px;
   border-radius: 12px;
   box-sizing: border-box;
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   text-align: center;
 }
 
 .dopamine-btn:hover {
   transform: translateY(-2px) scale(1.01);
-  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 12px 30px rgba(59, 130, 246, 0.5);
 }
 
 .dopamine-btn:active {
@@ -511,8 +520,8 @@ body {
 }
 
 .player-input-row input:focus {
-  border-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
 }
 
 .player-list {
@@ -645,7 +654,7 @@ body {
   }
 
   .title-3d-glow {
-    font-size: 1.8rem; /* Tamaño grande adaptado a móviles, sin animación */
+    font-size: 1.8rem;
   }
 
   .tiles {

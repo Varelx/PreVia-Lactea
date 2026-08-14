@@ -137,26 +137,24 @@ body {
   text-align: center;
 }
 
-/* Título 3D Avanzado y Novedoso con Alta Dopamina */
+/* Título "Elige un juego" sincronizado con el estilo del logo */
 .title-3d-glow {
-  font-size: 1.8rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif; /* Mismo tipo de letra */
+  font-size: 2.2rem;
+  font-weight: 800; /* Mismo peso (800) que el logo */
+  letter-spacing: -0.02em; /* Ajustado para coincidir con la cabecera */
   color: #ffffff;
   text-align: center;
   text-transform: uppercase;
-  background: linear-gradient(180deg, #ffffff 30%, #94a3b8 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.25));
-  animation: floatTitle 3s ease-in-out infinite alternate;
-  margin-bottom: 4px;
-}
-
-@keyframes floatTitle {
-  0% { transform: translateY(0) scale(1); filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.2)); }
-  100% { transform: translateY(-3px) scale(1.02); filter: drop-shadow(0 8px 20px rgba(255, 255, 255, 0.4)); }
+  /* Eliminamos el gradiente y el recorte de texto para que sea un blanco sólido e intenso como el logo */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: #ffffff;
+  /* Eliminamos la animación */
+  animation: none; 
+  margin-bottom: 12px;
+  /* Sombra sutil para darle profundidad sin movimiento */
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .picker-shell h2,
@@ -212,13 +210,13 @@ body {
   opacity: 1;
 }
 
-/* Botones de juego optimizados con icono y título más grandes */
+/* Botones de juego optimizados con menor altura vertical pero gran impacto visual */
 .game-tile {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 10px;
-  padding: 10px 10px;
+  gap: 16px;
+  padding: 8px 16px;
   border-radius: var(--card-radius);
   background: var(--card-bg);
   border: 1px solid var(--surface-border);
@@ -248,7 +246,7 @@ body {
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   flex-shrink: 0;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -647,7 +645,7 @@ body {
   }
 
   .title-3d-glow {
-    font-size: 1.4rem;
+    font-size: 1.8rem; /* Tamaño grande adaptado a móviles, sin animación */
   }
 
   .tiles {
@@ -662,8 +660,8 @@ body {
   }
 
   .game-tile {
-    padding: 10px 10px;
-    gap: 10px;
+    padding: 8px 12px;
+    gap: 12px;
   }
 
   .tile-visual {
@@ -674,7 +672,7 @@ body {
   }
 
   .tile-info strong {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
   .game-view {

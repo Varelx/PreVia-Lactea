@@ -8,7 +8,7 @@
   --text: #ffffff;
   --text-muted: #94a3b8;
   
-  --card-radius: 20px;
+  --card-radius: 16px;
   --app-radius: 24px;
   --glass: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
@@ -111,14 +111,14 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 20px;
   text-align: center;
 }
 
 /* Selector de Juegos */
 .game-picker {
   width: 100%;
-  max-width: 720px;
+  max-width: 650px;
   text-align: center;
   transition: opacity var(--anim-medium), transform var(--anim-medium);
   margin: auto;
@@ -130,13 +130,13 @@ body {
 }
 
 .picker-header {
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   text-align: center;
 }
 
 /* Título 3D Avanzado y Novedoso con Alta Dopamina */
 .title-3d-glow {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 800;
   letter-spacing: -0.03em;
   color: #ffffff;
@@ -147,7 +147,7 @@ body {
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.25));
   animation: floatTitle 3s ease-in-out infinite alternate;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 @keyframes floatTitle {
@@ -157,33 +157,34 @@ body {
 
 .picker-shell h2,
 .picker-header h2 {
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   color: var(--text);
   text-align: center;
 }
 
 .muted {
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-align: center;
 }
 
+/* Cuadrícula estrictamente forzada a 2 columnas compactas */
 .tiles {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  justify-items: center;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 10px;
   width: 100%;
+  margin: 0 auto;
 }
 
 .span-full {
-  grid-column: span 2;
+  grid-column: span 1 !important;
 }
 
-/* Tarjetas de alta dopamina en el Inicio */
+/* Tarjetas de alta dopamina más compactas */
 .card-dopamine {
   position: relative;
   overflow: hidden;
@@ -209,23 +210,23 @@ body {
 .game-tile {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 16px 20px;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
   border-radius: var(--card-radius);
   background: var(--card-bg);
   border: 1px solid var(--surface-border);
   cursor: pointer;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   width: 100%;
   transition: transform var(--anim-medium), box-shadow var(--anim-medium), border-color var(--anim-fast);
 }
 
 .game-tile:hover {
-  transform: translateY(-4px) scale(1.01);
+  transform: translateY(-3px) scale(1.01);
   border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 12px 30px -6px rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.1);
 }
 
 .game-tile:active {
@@ -233,14 +234,14 @@ body {
 }
 
 .tile-visual {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  font-size: 1.2rem;
+  font-size: 0.95rem;
   flex-shrink: 0;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -250,22 +251,31 @@ body {
 .tile-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  text-align: center;
+  align-items: flex-start;
+  gap: 1px;
+  text-align: left;
+  overflow: hidden;
 }
 
 .tile-info strong {
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   color: var(--text);
   font-weight: 700;
-  text-align: center;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
 }
 
 .tile-info .muted {
-  font-size: 0.78rem;
+  font-size: 0.73rem;
   margin: 0;
-  text-align: center;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
 }
 
 .bg-0, .bg-1, .bg-2, .bg-3, .bg-4, .bg-5, .bg-6 { 
@@ -286,7 +296,7 @@ body {
   background: var(--card-bg);
   border: 1px solid var(--surface-border);
   border-radius: var(--card-radius);
-  padding: 28px;
+  padding: 24px;
   box-shadow: var(--shadow);
   text-align: center;
 }
@@ -300,37 +310,37 @@ body {
 }
 
 .game-shell h2 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--text);
   text-align: center;
 }
 
 #gameSubtitle {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   text-align: center;
 }
 
 .tone-picker {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 24px;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .tone-btn, .answer-btn, .back-btn {
   border: none;
   border-radius: 12px;
-  padding: 12px 20px;
+  padding: 10px 16px;
   font-weight: 600;
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   cursor: pointer;
   transition: all var(--anim-fast);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  min-height: 44px;
+  gap: 6px;
+  min-height: 40px;
   text-align: center;
 }
 
@@ -378,8 +388,8 @@ body {
   width: 100%;
   background: linear-gradient(145deg, #161f30 0%, #0d121c 100%);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 18px;
-  padding: 32px 24px;
+  border-radius: 16px;
+  padding: 24px 20px;
   text-align: center;
   z-index: 2;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -420,9 +430,9 @@ body {
 }
 
 .question {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  line-height: 1.6;
+  line-height: 1.5;
   color: var(--text);
   text-align: center;
   margin: 0;
@@ -432,18 +442,18 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 24px;
+  margin-top: 20px;
 }
 
 .dopamine-btn {
   background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
   color: #000000;
   width: 100%;
-  padding: 14px;
-  font-size: 0.95rem;
+  padding: 12px;
+  font-size: 0.9rem;
   font-weight: 700;
-  min-height: 48px;
-  border-radius: 14px;
+  min-height: 44px;
+  border-radius: 12px;
   box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   text-align: center;
@@ -462,26 +472,26 @@ body {
   background: var(--glass);
   color: var(--text);
   border: 1px solid var(--glass-border);
-  padding: 8px 14px;
-  font-size: 0.82rem;
+  padding: 6px 12px;
+  font-size: 0.8rem;
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 /* Gestión de Jugadores Centrada */
 .player-setup {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   width: 100%;
 }
 
 .player-input-row {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
 }
 
@@ -489,10 +499,10 @@ body {
   flex: 1;
   background: var(--app-bg);
   border: 1px solid var(--surface-border);
-  border-radius: 12px;
-  padding: 12px 16px;
+  border-radius: 10px;
+  padding: 10px 14px;
   color: var(--text);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   outline: none;
   text-align: center;
   transition: border-color var(--anim-fast);
@@ -507,8 +517,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 8px;
-  max-height: 90px;
+  gap: 6px;
+  max-height: 80px;
   overflow-y: auto;
   width: 100%;
 }
@@ -516,13 +526,13 @@ body {
 .player-chip {
   background: var(--glass);
   border: 1px solid var(--glass-border);
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.78rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   color: var(--text);
   text-align: center;
 }
@@ -542,10 +552,10 @@ body {
 
 /* Footer Minimalista Centrado */
 .footer {
-  padding: 14px 24px;
+  padding: 12px 24px;
   text-align: center;
   color: var(--text-muted);
-  font-size: 0.75rem;
+  font-size: 0.73rem;
   border-top: 1px solid var(--surface-border);
   background: var(--app-bg);
   flex-shrink: 0;
@@ -576,7 +586,7 @@ body {
   }
 
   .content {
-    padding: 18px;
+    padding: 16px;
   }
 }
 
@@ -602,22 +612,22 @@ body {
   }
 
   .topbar {
-    padding: 14px 16px;
+    padding: 12px 16px;
   }
 
   .brand h1 {
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
 
   .logo {
-    width: 38px;
-    height: 38px;
-    font-size: 0.95rem;
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
     border-radius: 10px;
   }
 
   .content {
-    padding: 16px;
+    padding: 12px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     align-items: center;
@@ -630,27 +640,38 @@ body {
   }
 
   .title-3d-glow {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 
+  /* Cuadrícula compacta a 2 columnas en móviles pequeños */
   .tiles {
-    grid-template-columns: 1fr !important;
-    gap: 12px;
-    padding-bottom: 12px;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px;
+    padding-bottom: 8px;
   }
 
   .span-full {
-    grid-column: span 1;
+    grid-column: span 1 !important;
   }
 
   .game-tile {
-    padding: 14px 16px;
+    padding: 10px 10px;
+    gap: 10px;
   }
 
   .tile-visual {
-    width: 42px;
-    height: 42px;
-    font-size: 1.05rem;
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+    border-radius: 8px;
+  }
+
+  .tile-info strong {
+    font-size: 0.8rem;
+  }
+
+  .tile-info .muted {
+    font-size: 0.7rem;
   }
 
   .game-view {
@@ -659,31 +680,31 @@ body {
   }
 
   .game-shell {
-    padding: 18px;
+    padding: 16px;
   }
 
   .dopamine-card {
-    padding: 24px 18px;
+    padding: 20px 16px;
   }
 
   .question {
-    font-size: 1.02rem;
+    font-size: 0.98rem;
   }
 
   .tone-picker {
-    gap: 8px;
-    margin-bottom: 16px;
+    gap: 6px;
+    margin-bottom: 14px;
   }
 
   .tone-btn, .answer-btn, .back-btn {
-    padding: 10px 14px;
-    font-size: 0.82rem;
-    min-height: 40px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    min-height: 38px;
   }
 
   .footer {
-    padding: 10px 16px;
-    font-size: 0.7rem;
+    padding: 8px 16px;
+    font-size: 0.68rem;
   }
 }
 
@@ -694,18 +715,15 @@ body {
   }
   
   .content {
-    padding: 12px;
+    padding: 10px;
   }
 
   .tiles {
     grid-template-columns: repeat(2, 1fr) !important;
   }
   
-  .span-full {
-    grid-column: span 2;
-  }
-  
   .player-list {
-    max-height: 60px;
+    max-height: 50px;
   }
 }
+

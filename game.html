@@ -4,36 +4,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>PreVia Láctea</title>
+    <meta name="description" content="Diviértete con amigos usando PreVia Láctea: Yo nunca, Retos y mucho más.">
     
+    <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Iconos FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2.3">
 </head>
 <body>
 
     <div class="app-container">
-        <!-- Barra superior profesional con alineación centrada -->
-        <header class="topbar" style="justify-content: center; text-align: center;">
-            <a href="index.html" class="brand" style="text-decoration: none; color: inherit; justify-content: center;">
-                <div class="logo">
+        <!-- Barra superior profesional -->
+        <header class="topbar">
+            <a href="index.html" class="brand" style="text-decoration: none; color: inherit;">
+                <div class="logo" id="appLogo">
                     <i class="fa-solid fa-champagne-glasses"></i>
                 </div>
                 <h1>PreVia Láctea</h1>
             </a>
         </header>
 
-        <!-- Contenido principal centrado -->
+        <!-- Contenido principal -->
         <main class="content" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
             <section class="game-view" style="display: block; width: 100%; max-width: 600px;">
                 <article class="picker-shell game-shell" style="text-align: center;">
-                    <header class="game-header-row" style="justify-content: space-between; align-items: center;">
+                    <header class="game-header-row" style="justify-content: space-between; align-items: center; margin-bottom: 20px;">
                         <a href="index.html" class="back-btn" style="text-decoration: none;">
                             <i class="fa-solid fa-arrow-left"></i> Volver
                         </a>
-                        <h2 id="gameTitle" style="text-align: center; width: 100%;">Cargando...</h2>
+                        <h2 id="gameTitle" style="text-align: center; width: 100%; margin: 0;">Cargando...</h2>
                         <div style="width: 60px;"></div> <!-- Espaciador para equilibrar el header -->
                     </header>
-                    <p class="muted" id="gameSubtitle" style="text-align: center;">Elige el tono.</p>
                     
                     <!-- Selector de tono centrado -->
                     <div class="tone-picker" id="tonePicker" style="justify-content: center;">
@@ -68,10 +70,11 @@
 
         <!-- Footer centrado -->
         <footer class="footer" style="text-align: center;">
-            <p>Todos los derechos reservados &copy; Varelx &bull; Versión 2.2</p>
+            <p>Todos los derechos reservados &copy; Varelx &bull; Versión 2.3</p>
         </footer>
     </div>
 
     <script type="module" src="script-game.js"></script> 
 </body>
 </html>
+

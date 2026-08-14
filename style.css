@@ -217,8 +217,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 10px;
-  padding: 10px 10px;
+  gap: 7px;
+  padding: 7px 7px;
   border-radius: var(--card-radius);
   background: var(--card-bg);
   border: 1px solid var(--surface-border);
@@ -241,9 +241,9 @@ body {
 }
 
 .tile-visual {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;

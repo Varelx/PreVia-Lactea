@@ -1,38 +1,27 @@
 ﻿:root {
-  --bg0: #ff6bcc;
-  --bg1: #ff6bcc;
-  --bg2: #57e6ff;
-  --bg3: #7b61ff;
-  --accent: #ff4757;
+  --bg0: #ffffff;
+  --bg1: #ffffff;
+  --bg2: #ffffff;
+  --bg3: #ffffff;
+  --accent: #ffffff;
   --muted: #94a3b8;
-  --text: #f8fafc;
+  --text: #ffffff;
+  --text-muted: #94a3b8;
   
-  --card-radius: 16px;
-  --app-radius: 20px;
+  --card-radius: 20px;
+  --app-radius: 24px;
   --glass: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
-  --shadow: 0 20px 40px -15px rgba(2, 6, 23, 0.6);
+  --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
   
-  --bg: #090d16;
-  --app-bg: #0e1320;
-  --card-bg: #161d31;
+  --bg: #05070b;
+  --app-bg: #090d16;
+  --card-bg: #101622;
   --surface-border: rgba(255, 255, 255, 0.08);
 
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   --anim-fast: 150ms ease;
-  --anim-medium: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.theme-light {
-  --bg: #f1f5f9;
-  --app-bg: #ffffff;
-  --card-bg: #f8fafc;
-  --text: #0f172a;
-  --muted: #64748b;
-  --glass: rgba(15, 23, 42, 0.03);
-  --glass-border: rgba(15, 23, 42, 0.08);
-  --surface-border: rgba(15, 23, 42, 0.08);
-  --shadow: 0 15px 30px -10px rgba(15, 23, 42, 0.08);
+  --anim-medium: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 * {
@@ -72,65 +61,48 @@ body {
   overflow: hidden;
 }
 
-/* Topbar Profesional */
+/* Topbar Profesional y Centrada */
 .topbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 16px 24px;
+  justify-content: center;
+  padding: 18px 24px;
   border-bottom: 1px solid var(--surface-border);
   background: var(--app-bg);
   flex-shrink: 0;
+  text-align: center;
 }
 
 .brand {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
+  text-decoration: none;
+  color: inherit;
 }
 
 .logo {
   width: 42px;
   height: 42px;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--bg1), var(--bg3));
-  box-shadow: 0 4px 15px rgba(123, 97, 255, 0.4);
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #000000;
   font-size: 1.1rem;
 }
 
 .brand h1 {
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 800;
   letter-spacing: -0.02em;
-  background: linear-gradient(135deg, var(--text), var(--muted));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
 }
 
-.theme-toggle-btn {
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
-  color: var(--text);
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform var(--anim-fast), background var(--anim-fast);
-}
-
-.theme-toggle-btn:hover {
-  transform: scale(1.08);
-  background: var(--surface-border);
-}
-
-/* Contenido Principal */
+/* Contenido Principal Alineado al Centro */
 .content {
   flex: 1;
   position: relative;
@@ -138,7 +110,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 24px;
+  text-align: center;
 }
 
 /* Selector de Juegos */
@@ -147,7 +121,7 @@ body {
   max-width: 720px;
   text-align: center;
   transition: opacity var(--anim-medium), transform var(--anim-medium);
-  margin: auto 0;
+  margin: auto;
 }
 
 .game-picker[aria-hidden="true"],
@@ -156,44 +130,102 @@ body {
 }
 
 .picker-header {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  text-align: center;
 }
 
-.picker-shell h2 {
-  font-size: 1.4rem;
+/* Título 3D Avanzado y Novedoso con Alta Dopamina */
+.title-3d-glow {
+  font-size: 2rem;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #ffffff 30%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.25));
+  animation: floatTitle 3s ease-in-out infinite alternate;
   margin-bottom: 6px;
 }
 
+@keyframes floatTitle {
+  0% { transform: translateY(0) scale(1); filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.2)); }
+  100% { transform: translateY(-3px) scale(1.02); filter: drop-shadow(0 8px 20px rgba(255, 255, 255, 0.4)); }
+}
+
+.picker-shell h2,
+.picker-header h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  color: var(--text);
+  text-align: center;
+}
+
 .muted {
-  color: var(--muted);
-  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
 }
 
 .tiles {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 14px;
+  justify-items: center;
+  width: 100%;
+}
+
+.span-full {
+  grid-column: span 2;
+}
+
+/* Tarjetas de alta dopamina en el Inicio */
+.card-dopamine {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-dopamine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card-dopamine:hover::after {
+  opacity: 1;
 }
 
 .game-tile {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 14px 16px;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px 20px;
   border-radius: var(--card-radius);
   background: var(--card-bg);
   border: 1px solid var(--surface-border);
   cursor: pointer;
-  text-align: left;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
   transition: transform var(--anim-medium), box-shadow var(--anim-medium), border-color var(--anim-fast);
 }
 
 .game-tile:hover {
-  transform: translateY(-3px);
-  border-color: var(--bg3);
-  box-shadow: 0 10px 25px -5px rgba(123, 97, 255, 0.15);
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 12px 30px -6px rgba(255, 255, 255, 0.12);
 }
 
 .game-tile:active {
@@ -207,51 +239,56 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #ffffff;
   font-size: 1.2rem;
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1);
 }
 
 .tile-info {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2px;
+  text-align: center;
 }
 
 .tile-info strong {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--text);
+  font-weight: 700;
+  text-align: center;
 }
 
 .tile-info .muted {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   margin: 0;
+  text-align: center;
 }
 
-/* Gradientes vivos para los iconos de juegos */
-.bg-0 { background: linear-gradient(135deg, var(--bg1), var(--bg3)); }
-.bg-1 { background: linear-gradient(135deg, var(--bg1), var(--accent)); }
-.bg-2 { background: linear-gradient(135deg, #f59e0b, #ec4899); }
-.bg-3 { background: linear-gradient(135deg, #10b981, #3b82f6); }
-.bg-4 { background: linear-gradient(135deg, #f43f5e, #8b5cf6); }
-.bg-5 { background: linear-gradient(135deg, #6366f1, #d946ef); }
-.bg-6 { background: linear-gradient(135deg, #f97316, #eab308); }
+.bg-0, .bg-1, .bg-2, .bg-3, .bg-4, .bg-5, .bg-6 { 
+  background: rgba(255, 255, 255, 0.06); 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
 /* Vistas de Juego */
 .game-view {
   width: 100%;
   max-width: 600px;
   animation: fadeIn var(--anim-medium) ease;
-  margin: auto 0;
+  margin: auto;
+  text-align: center;
 }
 
 .game-shell {
   background: var(--card-bg);
   border: 1px solid var(--surface-border);
   border-radius: var(--card-radius);
-  padding: 24px;
+  padding: 28px;
   box-shadow: var(--shadow);
+  text-align: center;
 }
 
 .game-header-row {
@@ -259,32 +296,42 @@ body {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 6px;
+  width: 100%;
 }
 
 .game-shell h2 {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 700;
+  color: var(--text);
+  text-align: center;
+}
+
+#gameSubtitle {
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .tone-picker {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
 .tone-btn, .answer-btn, .back-btn {
   border: none;
-  border-radius: 10px;
-  padding: 10px 16px;
+  border-radius: 12px;
+  padding: 12px 20px;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   cursor: pointer;
   transition: all var(--anim-fast);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 40px;
+  min-height: 44px;
+  text-align: center;
 }
 
 .tone-btn {
@@ -295,117 +342,209 @@ body {
 }
 
 .tone-btn.active {
-  background: linear-gradient(135deg, var(--bg1), var(--bg3));
-  color: #fff;
+  background: #ffffff;
+  color: #000000;
   border: none;
-  box-shadow: 0 4px 12px rgba(123, 97, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* EFECTO CARTA DE BARAJA 3D (ALTA DOPAMINA) */
+.card-deck-container {
+  position: relative;
+  width: 100%;
+  margin: 10px 0;
+  perspective: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-stack-effect {
+  position: absolute;
+  width: 94%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--surface-border);
+  border-radius: 16px;
+  top: 8px;
+  left: 3%;
+  z-index: 1;
+  transform: rotate(2deg) scale(0.97);
+  pointer-events: none;
+}
+
+.dopamine-card {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(145deg, #161f30 0%, #0d121c 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 18px;
+  padding: 32px 24px;
+  text-align: center;
+  z-index: 2;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+  animation: cardSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes cardSlideIn {
+  0% { opacity: 0; transform: translateY(40px) rotateX(15deg) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) rotateX(0) scale(1); }
+}
+
+.dopamine-card:hover {
+  transform: translateY(-3px) rotateX(2deg);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.card-inner-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
 }
 
 .question-shell {
-  background: var(--app-bg);
-  border: 1px solid var(--surface-border);
-  border-radius: 14px;
-  padding: 20px;
+  background: transparent;
+  border: none;
+  padding: 0;
   text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .question {
-  font-size: 1.05rem;
-  font-weight: 500;
-  line-height: 1.5;
-  margin-bottom: 20px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.6;
   color: var(--text);
+  text-align: center;
+  margin: 0;
 }
 
 .answer-actions {
   display: flex;
   justify-content: center;
-}
-
-.answer-btn.good {
-  background: linear-gradient(135deg, var(--bg1), var(--bg3));
-  color: #fff;
   width: 100%;
-  padding: 12px;
-  font-size: 0.95rem;
-  min-height: 46px;
-  box-shadow: 0 4px 15px rgba(123, 97, 255, 0.35);
+  margin-top: 24px;
 }
 
-.answer-btn:hover, .tone-btn:hover {
-  opacity: 0.95;
-  transform: translateY(-1px);
+.dopamine-btn {
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+  color: #000000;
+  width: 100%;
+  padding: 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  min-height: 48px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.dopamine-btn:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.4);
+}
+
+.dopamine-btn:active {
+  transform: scale(0.97);
 }
 
 .back-btn {
   background: var(--glass);
   color: var(--text);
   border: 1px solid var(--glass-border);
-  padding: 6px 12px;
-  font-size: 0.8rem;
+  padding: 8px 14px;
+  font-size: 0.82rem;
+  text-decoration: none;
+  border-radius: 10px;
 }
 
-/* Gestión de Jugadores */
+/* Gestión de Jugadores Centrada */
 .player-setup {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
 }
 
 .player-input-row {
   display: flex;
-  gap: 8px;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
 }
 
 .player-input-row input {
   flex: 1;
   background: var(--app-bg);
   border: 1px solid var(--surface-border);
-  border-radius: 10px;
-  padding: 10px 14px;
+  border-radius: 12px;
+  padding: 12px 16px;
   color: var(--text);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   outline: none;
+  text-align: center;
   transition: border-color var(--anim-fast);
 }
 
 .player-input-row input:focus {
-  border-color: var(--bg3);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
 .player-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
-  max-height: 80px;
+  max-height: 90px;
   overflow-y: auto;
+  width: 100%;
 }
 
 .player-chip {
   background: var(--glass);
   border: 1px solid var(--glass-border);
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: 20px;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  color: var(--text);
+  text-align: center;
 }
 
 .player-chip button {
   background: none;
   border: none;
-  color: var(--accent);
+  color: #ffffff;
+  opacity: 0.7;
   cursor: pointer;
   font-weight: bold;
 }
 
-/* Footer Minimalista */
+.player-chip button:hover {
+  opacity: 1;
+}
+
+/* Footer Minimalista Centrado */
 .footer {
-  padding: 12px 24px;
+  padding: 14px 24px;
   text-align: center;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 0.75rem;
   border-top: 1px solid var(--surface-border);
   background: var(--app-bg);
@@ -418,10 +557,9 @@ body {
 }
 
 /* ================================================================= */
-/* OPTIMIZACIÓN RESPONSIVE AVANZADA                                  */
+/* RESPONSIVE AVANZADO                                               */
 /* ================================================================= */
 
-/* Tablets y pantallas medianas (hasta 768px) */
 @media (max-width: 768px) {
   body {
     padding: 8px;
@@ -430,19 +568,18 @@ body {
   .app-container {
     width: 100%;
     height: min(95vh, 800px);
-    border-radius: 14px;
+    border-radius: 18px;
   }
 
   .topbar {
-    padding: 12px 16px;
+    padding: 14px 18px;
   }
 
   .content {
-    padding: 16px;
+    padding: 18px;
   }
 }
 
-/* Teléfonos móviles estándar y pequeños (hasta 480px) */
 @media (max-width: 480px) {
   html, body {
     height: 100%;
@@ -465,7 +602,7 @@ body {
   }
 
   .topbar {
-    padding: 10px 14px;
+    padding: 14px 16px;
   }
 
   .brand h1 {
@@ -473,83 +610,83 @@ body {
   }
 
   .logo {
-    width: 36px;
-    height: 36px;
-    font-size: 1rem;
+    width: 38px;
+    height: 38px;
+    font-size: 0.95rem;
     border-radius: 10px;
   }
 
-  .theme-toggle-btn {
-    width: 36px;
-    height: 36px;
-  }
-
   .content {
-    padding: 12px;
+    padding: 16px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    align-items: stretch;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
   }
 
   .game-picker {
-    margin: 0;
+    margin: auto;
     max-width: 100%;
   }
 
-  .picker-shell h2 {
-    font-size: 1.2rem;
+  .title-3d-glow {
+    font-size: 1.6rem;
   }
 
-  /* Ajuste de tarjetas de juegos en móviles a una columna */
   .tiles {
     grid-template-columns: 1fr !important;
-    gap: 10px;
-    padding-bottom: 16px;
+    gap: 12px;
+    padding-bottom: 12px;
+  }
+
+  .span-full {
+    grid-column: span 1;
   }
 
   .game-tile {
-    padding: 12px 14px;
+    padding: 14px 16px;
   }
 
   .tile-visual {
     width: 42px;
     height: 42px;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .game-view {
     max-width: 100%;
-    margin: 0;
+    margin: auto;
   }
 
   .game-shell {
-    padding: 16px;
+    padding: 18px;
+  }
+
+  .dopamine-card {
+    padding: 24px 18px;
   }
 
   .question {
-    font-size: 0.98rem;
-    margin-bottom: 16px;
+    font-size: 1.02rem;
   }
 
   .tone-picker {
     gap: 8px;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
   }
 
   .tone-btn, .answer-btn, .back-btn {
-    padding: 8px 12px;
-    font-size: 0.8rem;
-    min-height: 38px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    min-height: 40px;
   }
 
   .footer {
-    padding: 8px 16px;
+    padding: 10px 16px;
     font-size: 0.7rem;
   }
 }
 
-/* Pantallas muy alargadas o en modo horizontal en móviles */
 @media (max-height: 600px) and (orientation: landscape) {
   .app-container {
     height: 100dvh;
@@ -557,14 +694,19 @@ body {
   }
   
   .content {
-    padding: 10px;
+    padding: 12px;
   }
 
   .tiles {
     grid-template-columns: repeat(2, 1fr) !important;
   }
   
+  .span-full {
+    grid-column: span 2;
+  }
+  
   .player-list {
-    max-height: 50px;
+    max-height: 60px;
   }
 }
+

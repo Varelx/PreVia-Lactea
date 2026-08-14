@@ -12,26 +12,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameTitle = document.getElementById('gameTitle');
     const gameSubtitle = document.getElementById('gameSubtitle');
     const activeQuestion = document.getElementById('activeQuestion');
+    const cardElement = document.getElementById('cardElement');
     const btnNextPrompt = document.getElementById('btnNextPrompt');
     const toneButtons = document.querySelectorAll('.tone-btn');
-    const themeToggle = document.getElementById('themeToggle');
 
     const playerNameInput = document.getElementById('playerNameInput');
     const btnAddPlayer = document.getElementById('btnAddPlayer');
     const playerList = document.getElementById('playerList');
     const playerSetup = document.getElementById('playerSetup');
 
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('theme-light');
-        themeToggle.textContent = document.body.classList.contains('theme-light') ? '☀️' : '🌙';
-    });
-
-    // Inicializar vista del juego
+    // Inicializar vista del juego y alinear textos al centro
     const category = categories.find(c => c.key === currentCategoryKey);
     if (category) {
         gameTitle.textContent = category.label;
         gameSubtitle.textContent = `Modo actual: ${currentTone.toUpperCase()}`;
-        renderPrompt();
+        renderPromptWithAnimation();
     } else {
         gameTitle.textContent = "Juego";
         gameSubtitle.textContent = `Modo actual: ${currentTone.toUpperCase()}`;
@@ -45,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         playerSetup.style.display = 'none';
     }
 
-    // Cambiar Tono
+    // Cambiar Tono con animación de alta dopamina
     toneButtons.forEach(button => {
         button.addEventListener('click', () => {
             toneButtons.forEach(btn => btn.classList.remove('active'));
@@ -53,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentTone = button.dataset.tone || 'normal';
             gameSubtitle.textContent = `Modo actual: ${currentTone.toUpperCase()}`;
             seenPrompts = [];
-            renderPrompt();
+            renderPromptWithAnimation();
         });
     });
 
@@ -106,11 +101,17 @@ document.addEventListener('DOMContentLoaded', () => {
         return selectedText;
     }
 
-    function renderPrompt() {
+    // Renderizar pregunta aplicando animación fluida estilo carta deslizante
+    function renderPromptWithAnimation() {
+        if (cardElement) {
+            cardElement.style.animation = 'none';
+            cardElement.offsetHeight; // Trigger reflow
+            cardElement.style.animation = 'cardSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards';
+        }
         activeQuestion.innerHTML = getNextPromptText();
     }
 
-    btnNextPrompt.addEventListener('click', renderPrompt);
+    btnNextPrompt.addEventListener('click', renderPromptWithAnimation);
 
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
@@ -129,14 +130,14 @@ document.addEventListener('DOMContentLoaded', () => {
             players.push(name);
             playerNameInput.value = '';
             renderPlayerList();
-            renderPrompt();
+            renderPromptWithAnimation();
         }
     }
 
     window.removePlayer = function(name) {
         players = players.filter(p => p !== name);
         renderPlayerList();
-        renderPrompt();
+        renderPromptWithAnimation();
     }
 
     function renderPlayerList() {
@@ -149,3 +150,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+

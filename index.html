@@ -17,15 +17,12 @@
     <div class="app-container">
         <!-- Barra superior profesional -->
         <header class="topbar">
-            <div class="brand">
+            <a href="index.html" class="brand" style="text-decoration: none; color: inherit;">
                 <div class="logo" id="appLogo">
                     <i class="fa-solid fa-champagne-glasses"></i>
                 </div>
                 <h1>PreVia Láctea</h1>
-            </div>
-            <button id="themeToggle" class="theme-toggle-btn" aria-label="Cambiar tema">
-                <i class="fa-solid fa-moon"></i>
-            </button>
+            </a>
         </header>
 
         <!-- Contenido principal -->
@@ -33,14 +30,15 @@
             
             <!-- Selector de Juegos -->
             <section class="game-picker" id="gamePicker" aria-hidden="false">
-                <header class="picker-header">
-                    <h2>Elige un juego</h2>
+                <header class="picker-header" style="text-align: center;">
+                    <!-- Título 3D avanzado y novedoso con alta dopamina -->
+                    <h2 class="title-3d-glow">Elige un juego</h2>
                     <p class="muted">Selecciona una categoría para empezar la diversión</p>
                 </header>
                 
-                <nav class="tiles" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;">
+                <nav class="tiles" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; justify-items: center;">
                     <!-- Botón MIX ocupando todo el ancho -->
-                    <a href="game.html?cat=mix" class="game-tile span-full" style="text-decoration: none;">
+                    <a href="game.html?cat=mix" class="game-tile span-full card-dopamine" style="text-decoration: none; text-align: center;">
                         <div class="tile-visual bg-0"><i class="fa-solid fa-shuffle"></i></div>
                         <div class="tile-info">
                             <strong>Mix</strong>
@@ -48,8 +46,8 @@
                         </div>
                     </a>
 
-                    <!-- Resto de botones a una columna -->
-                    <a href="game.html?cat=yonunca" class="game-tile" style="text-decoration: none;">
+                    <!-- Resto de botones -->
+                    <a href="game.html?cat=yonunca" class="game-tile card-dopamine" style="text-decoration: none; text-align: center;">
                         <div class="tile-visual bg-1"><i class="fa-solid fa-user-secret"></i></div>
                         <div class="tile-info">
                             <strong>Yo nunca</strong>
@@ -57,15 +55,15 @@
                         </div>
                     </a>
 
-                    <a href="game.html?cat=votaciones" class="game-tile" style="text-decoration: none;">
+                    <a href="game.html?cat=votaciones" class="game-tile card-dopamine" style="text-decoration: none; text-align: center;">
                         <div class="tile-visual bg-5"><i class="fa-solid fa-square-poll-vertical"></i></div>
                         <div class="tile-info">
-                            <strong>Mas probable qué...</strong>
+                            <strong>Más probable qué...</strong>
                             <span class="muted">Revela al grupo</span>
                         </div>
                     </a>
 
-                    <a href="game.html?cat=interaccion" class="game-tile" style="text-decoration: none;">
+                    <a href="game.html?cat=interaccion" class="game-tile card-dopamine" style="text-decoration: none; text-align: center;">
                         <div class="tile-visual bg-6"><i class="fa-solid fa-users-rays"></i></div>
                         <div class="tile-info">
                             <strong>Interacción</strong>
@@ -73,7 +71,7 @@
                         </div>
                     </a>
 
-                    <a href="game.html?cat=retos" class="game-tile" style="text-decoration: none;">
+                    <a href="game.html?cat=retos" class="game-tile card-dopamine" style="text-decoration: none; text-align: center;">
                         <div class="tile-visual bg-3"><i class="fa-solid fa-fire"></i></div>
                         <div class="tile-info">
                             <strong>Retos</strong>
@@ -81,7 +79,7 @@
                         </div>
                     </a>
 
-                    <a href="game.html?cat=verdadshot" class="game-tile" style="text-decoration: none;">
+                    <a href="game.html?cat=verdadshot" class="game-tile card-dopamine" style="text-decoration: none; text-align: center;">
                         <div class="tile-visual bg-4"><i class="fa-solid fa-wine-glass-empty"></i></div>
                         <div class="tile-info">
                             <strong>Verdad o trago</strong>
@@ -93,17 +91,10 @@
         </main>
 
         <!-- Footer -->
-        <footer class="footer">
-            <p>Todos los derechos reservados &copy; Varelx &bull; Versión 2.1</p>
+        <footer class="footer" style="text-align: center;">
+            <p>Todos los derechos reservados &copy; Varelx &bull; Versión 2.2</p>
         </footer>
     </div>
-
-    <script>
-        const themeToggle = document.getElementById('themeToggle');
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('theme-light');
-            themeToggle.textContent = document.body.classList.contains('theme-light') ? '☀️' : '🌙';
-        });
-    </script> 
 </body>
 </html>
+

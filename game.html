@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>PreVia Láctea - Juego</title>
+    <title>PreVia Láctea</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -12,47 +12,53 @@
 <body>
 
     <div class="app-container">
-        <header class="topbar">
-            <div class="brand">
+        <!-- Barra superior profesional con alineación centrada -->
+        <header class="topbar" style="justify-content: center; text-align: center;">
+            <a href="index.html" class="brand" style="text-decoration: none; color: inherit; justify-content: center;">
                 <div class="logo">
                     <i class="fa-solid fa-champagne-glasses"></i>
                 </div>
                 <h1>PreVia Láctea</h1>
-            </div>
-            <button id="themeToggle" class="theme-toggle-btn" aria-label="Cambiar tema">
-                <i class="fa-solid fa-moon"></i>
-            </button>
+            </a>
         </header>
 
-        <main class="content">
-            <section class="game-view" style="display: block;">
-                <article class="picker-shell game-shell">
-                    <header class="game-header-row">
-                        <h2 id="gameTitle">Cargando...</h2>
+        <!-- Contenido principal centrado -->
+        <main class="content" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <section class="game-view" style="display: block; width: 100%; max-width: 600px;">
+                <article class="picker-shell game-shell" style="text-align: center;">
+                    <header class="game-header-row" style="justify-content: space-between; align-items: center;">
                         <a href="index.html" class="back-btn" style="text-decoration: none;">
                             <i class="fa-solid fa-arrow-left"></i> Volver
                         </a>
+                        <h2 id="gameTitle" style="text-align: center; width: 100%;">Cargando...</h2>
+                        <div style="width: 60px;"></div> <!-- Espaciador para equilibrar el header -->
                     </header>
-                    <p class="muted" id="gameSubtitle">Elige el tono.</p>
+                    <p class="muted" id="gameSubtitle" style="text-align: center;">Elige el tono.</p>
                     
-                    <div class="tone-picker" id="tonePicker">
+                    <!-- Selector de tono centrado -->
+                    <div class="tone-picker" id="tonePicker" style="justify-content: center;">
                         <button class="tone-btn active" data-tone="normal"><i class="fa-solid fa-face-smile"></i> Normal</button>
                         <button class="tone-btn hot" data-tone="hot"><i class="fa-solid fa-fire-flame-curved"></i> Hot</button>
                     </div>
 
-                    <div id="playerSetup" class="player-setup" style="display: none;">
-                        <div class="player-input-row">
-                            <input type="text" id="playerNameInput" placeholder="Nombre del jugador" />
+                    <div id="playerSetup" class="player-setup" style="display: none; text-align: center;">
+                        <div class="player-input-row" style="justify-content: center;">
+                            <input type="text" id="playerNameInput" placeholder="Nombre del jugador" style="text-align: center;" />
                             <button id="btnAddPlayer" class="tone-btn"><i class="fa-solid fa-plus"></i></button>
                         </div>
-                        <div id="playerList" class="player-list"></div>
+                        <div id="playerList" class="player-list" style="justify-content: center;"></div>
                     </div>
 
-                    <div class="question-shell">
-                        <p id="activeQuestion" class="question">Preparando diversión...</p>
-                        <footer class="answer-actions">
-                            <button id="btnNextPrompt" class="answer-btn good">
-                                Siguiente pregunta <i class="fa-solid fa-arrow-right"></i>
+                    <!-- Contenedor de preguntas transformado en una carta de baraja interactiva con efectos de dopamina -->
+                    <div class="question-shell card-deck-container" style="text-align: center;">
+                        <div class="card-stack-effect"></div>
+                        <div class="dopamine-card" id="cardElement" style="text-align: center;">
+                            <div class="card-inner-glow"></div>
+                            <p id="activeQuestion" class="question" style="text-align: center;">Preparando diversión...</p>
+                        </div>
+                        <footer class="answer-actions" style="justify-content: center; margin-top: 24px;">
+                            <button id="btnNextPrompt" class="answer-btn good dopamine-btn" style="text-align: center;">
+                                Siguiente carta <i class="fa-solid fa-arrow-right"></i>
                             </button>
                         </footer>
                     </div>
@@ -60,11 +66,13 @@
             </section>
         </main>
 
-        <footer class="footer">
-            <p>Todos los derechos reservados &copy; Varelx &bull; Versión 2.1</p>
+        <!-- Footer centrado -->
+        <footer class="footer" style="text-align: center;">
+            <p>Todos los derechos reservados &copy; Varelx &bull; Versión 2.2</p>
         </footer>
     </div>
 
     <script type="module" src="script-game.js"></script> 
 </body>
 </html>
+

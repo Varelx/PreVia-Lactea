@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Iconos FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=2.1">
+    <link rel="stylesheet" href="style.css?v=4.0">
 </head>
 <body>
 
@@ -29,16 +29,22 @@
         <main class="content" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
             <section class="game-view" style="display: block; width: 100%; max-width: 600px;">
                 <article class="picker-shell game-shell" style="text-align: center;">
-                    <header class="game-header-row" style="justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <header class="game-header-row" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        
+                        <!-- Botón de volver (Izquierda) -->
                         <a href="index.html" class="back-btn" style="text-decoration: none;">
                             <i class="fa-solid fa-arrow-left"></i> Volver
                         </a>
-                        <h2 id="gameTitle" style="text-align: center; width: 100%; margin: 0;">Cargando...</h2>
-                        <div style="width: 60px;"></div>
+
+                        <!-- Título central -->
+                        <h2 id="gameTitle" style="text-align: center; margin: 0; flex-grow: 1;">Cargando...</h2>
+
+                        <!-- Botón de voz (Derecha, idéntico al de volver) -->
+                        <button id="btnSpeak" class="back-btn" type="button" title="Activar/Desactivar voz">
+                            <i class="fa-solid fa-volume-high"></i> Voz
+                        </button>
+
                     </header>
-                    
-                    <!-- Subtítulo dinámico del modo actual para que el JS lo actualice bien -->
-                    <p id="gameSubtitle" style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 15px; text-transform: uppercase;">Modo actual: NORMAL</p>
 
                     <!-- Selector de tono centrado -->
                     <div class="tone-picker" id="tonePicker" style="justify-content: center;">
@@ -56,14 +62,13 @@
 
                     <!-- Contenedor de preguntas -->
                     <div class="question-shell card-deck-container" style="text-align: center;">
-                        <div class="card-stack-effect"></div>
                         <div class="dopamine-card" id="cardElement" style="text-align: center;">
                             <div class="card-inner-glow"></div>
-                            <p id="activeQuestion" class="question" style="text-align: center;">Preparando diversión...</p>
+                            <p id="activeQuestion" class="question" style="text-align: center;">Haciendo cubata...</p>
                         </div>
                         <footer class="answer-actions" style="justify-content: center; margin-top: 24px;">
                             <button id="btnNextPrompt" class="answer-btn good dopamine-btn" style="text-align: center;" type="button">
-                                Siguiente carta <i class="fa-solid fa-arrow-right"></i>
+                                Siguiente <i class="fa-solid fa-arrow-right"></i>
                             </button>
                         </footer>
                     </div>
@@ -73,7 +78,7 @@
 
         <!-- Footer centrado -->
         <footer class="footer" style="text-align: center;">
-            <p>Todos los derechos reservados &copy; Varelx &bull; Versión 2.1</p>
+            <p>Todos los derechos reservados &copy; Varelx &bull; Versión 4.0</p>
         </footer>
     </div>
 

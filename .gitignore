@@ -1,4 +1,18 @@
-﻿node_modules/
-.vscode/
+﻿# =====================================================================
+# 🚀 PROYECTO: PreVia Láctea (Web App)
+# 👤 DESARROLLADO POR: Varelx
+# 📅 AÑO: 2026
+# 📂 CATÁLOGO: Configuración de control de versiones (Git Exclusions)
+# =====================================================================
+
+# Dependencias y Entornos
+node_modules/
+
+# Archivos del sistema operativo
 .DS_Store
+
+# Entornos de Editores de Código
+.vscode/
+
+# Logs, Caché y Compilaciones Temporales
 *.log

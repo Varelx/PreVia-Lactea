@@ -217,8 +217,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 8px;
-  padding: 8px 8px;
+  gap: 10px;
+  padding: 10px 10px;
   border-radius: var(--card-radius);
   background: var(--card-bg);
   border: 1px solid var(--surface-border);
@@ -241,8 +241,8 @@ body {
 }
 
 .tile-visual {
-  width: 35px;
-  height: 35px;
+  width: 38px;
+  height: 38px;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -662,13 +662,13 @@ body {
   }
 
   .game-tile {
-    padding: 8px 8px;
-    gap: 8px;
+    padding: 10px 10px;
+    gap: 10px;
   }
 
   .tile-visual {
-    width: 35px;
-    height: 35px;
+    width: 38px;
+    height: 38px;
     font-size: 1.1rem;
     border-radius: 10px;
   }

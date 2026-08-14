@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PreVia Láctea - Juego</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="topbar">
+            <div class="brand">
+                <div class="logo">
+                    <i class="fa-solid fa-champagne-glasses"></i>
+                </div>
+                <h1>PreVia Láctea</h1>
+            </div>
+            <button id="themeToggle" class="theme-toggle-btn" aria-label="Cambiar tema">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </header>
+
+        <main class="content">
+            <section class="game-view" style="display: block;">
+                <article class="picker-shell game-shell">
+                    <header class="game-header-row">
+                        <h2 id="gameTitle">Cargando...</h2>
+                        <a href="index.html" class="back-btn" style="text-decoration: none;">
+                            <i class="fa-solid fa-arrow-left"></i> Volver
+                        </a>
+                    </header>
+                    <p class="muted" id="gameSubtitle">Elige el tono.</p>
+                    
+                    <div class="tone-picker" id="tonePicker">
+                        <button class="tone-btn active" data-tone="normal"><i class="fa-solid fa-face-smile"></i> Normal</button>
+                        <button class="tone-btn hot" data-tone="hot"><i class="fa-solid fa-fire-flame-curved"></i> Hot</button>
+                    </div>
+
+                    <div id="playerSetup" class="player-setup" style="display: none;">
+                        <div class="player-input-row">
+                            <input type="text" id="playerNameInput" placeholder="Nombre del jugador" />
+                            <button id="btnAddPlayer" class="tone-btn"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <div id="playerList" class="player-list"></div>
+                    </div>
+
+                    <div class="question-shell">
+                        <p id="activeQuestion" class="question">Preparando diversión...</p>
+                        <footer class="answer-actions">
+                            <button id="btnNextPrompt" class="answer-btn good">
+                                Siguiente pregunta <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </footer>
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Todos los derechos reservados &copy; Varelx &bull; Versión 2.1</p>
+        </footer>
+    </div>
+
+    <script type="module" src="script-game.js"></script> 
+</body>
+</html>

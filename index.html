@@ -40,90 +40,55 @@
                 
                 <nav class="tiles" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;">
                     <!-- Botón MIX ocupando todo el ancho -->
-                    <button class="game-tile span-full" data-target="mix">
+                    <a href="game.html?cat=mix" class="game-tile span-full" style="text-decoration: none;">
                         <div class="tile-visual bg-0"><i class="fa-solid fa-shuffle"></i></div>
                         <div class="tile-info">
                             <strong>Mix</strong>
                             <span class="muted">Un remix de todo</span>
                         </div>
-                    </button>
+                    </a>
 
                     <!-- Resto de botones a una columna -->
-                    <button class="game-tile" data-target="yonunca">
+                    <a href="game.html?cat=yonunca" class="game-tile" style="text-decoration: none;">
                         <div class="tile-visual bg-1"><i class="fa-solid fa-user-secret"></i></div>
                         <div class="tile-info">
                             <strong>Yo nunca</strong>
                             <span class="muted">Secretos y confesiones</span>
                         </div>
-                    </button>
+                    </a>
 
-                    <button class="game-tile" data-target="votaciones">
+                    <a href="game.html?cat=votaciones" class="game-tile" style="text-decoration: none;">
                         <div class="tile-visual bg-5"><i class="fa-solid fa-square-poll-vertical"></i></div>
                         <div class="tile-info">
                             <strong>Mas probable qué...</strong>
                             <span class="muted">Revela al grupo</span>
                         </div>
-                    </button>
+                    </a>
 
-                    <button class="game-tile" data-target="interaccion">
+                    <a href="game.html?cat=interaccion" class="game-tile" style="text-decoration: none;">
                         <div class="tile-visual bg-6"><i class="fa-solid fa-users-rays"></i></div>
                         <div class="tile-info">
                             <strong>Interacción</strong>
                             <span class="muted">Retos entre jugadores</span>
                         </div>
-                    </button>
+                    </a>
 
-                    <button class="game-tile" data-target="retos">
+                    <a href="game.html?cat=retos" class="game-tile" style="text-decoration: none;">
                         <div class="tile-visual bg-3"><i class="fa-solid fa-fire"></i></div>
                         <div class="tile-info">
                             <strong>Retos</strong>
                             <span class="muted">Pruebas y desafíos</span>
                         </div>
-                    </button>
+                    </a>
 
-                    <button class="game-tile" data-target="verdadshot">
+                    <a href="game.html?cat=verdadshot" class="game-tile" style="text-decoration: none;">
                         <div class="tile-visual bg-4"><i class="fa-solid fa-wine-glass-empty"></i></div>
                         <div class="tile-info">
                             <strong>Verdad o trago</strong>
                             <span class="muted">Sinceridad o bebes</span>
                         </div>
-                    </button>
+                    </a>
                 </nav>
-            </section>
-
-            <!-- Vista Dinámica del Juego (oculta por defecto) -->
-            <section class="game-view" id="gameView" aria-hidden="true" style="display: none;">
-                <article class="picker-shell game-shell">
-                    <header class="game-header-row">
-                        <h2 id="gameTitle">Título del juego</h2>
-                        <button id="btnBackPicker" class="back-btn">
-                            <i class="fa-solid fa-arrow-left"></i> Volver
-                        </button>
-                    </header>
-                    <p class="muted" id="gameSubtitle">Elige el tono.</p>
-                    
-                    <div class="tone-picker" id="tonePicker">
-                        <button class="tone-btn active" data-tone="normal"><i class="fa-solid fa-face-smile"></i> Normal</button>
-                        <button class="tone-btn hot" data-tone="hot"><i class="fa-solid fa-fire-flame-curved"></i> Hot</button>
-                    </div>
-
-                    <div id="playerSetup" class="player-setup" style="display: none;">
-                        <div class="player-input-row">
-                            <input type="text" id="playerNameInput" placeholder="Nombre del jugador" />
-                            <button id="btnAddPlayer" class="tone-btn"><i class="fa-solid fa-plus"></i></button>
-                        </div>
-                        <div id="playerList" class="player-list"></div>
-                    </div>
-
-                    <div class="question-shell">
-                        <p id="activeQuestion" class="question">Elige una categoría para empezar.</p>
-                        <footer class="answer-actions">
-                            <button id="btnNextPrompt" class="answer-btn good">
-                                Siguiente pregunta <i class="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </footer>
-                    </div>
-                </article>
             </section>
         </main>
 
@@ -133,7 +98,12 @@
         </footer>
     </div>
 
-    <script type="module" src="script.js"></script> 
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('theme-light');
+            themeToggle.textContent = document.body.classList.contains('theme-light') ? '☀️' : '🌙';
+        });
+    </script> 
 </body>
 </html>
-

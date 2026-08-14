@@ -21,45 +21,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const playerList = document.getElementById('playerList');
     const playerSetup = document.getElementById('playerSetup');
 
-    // Inicializar vista del juego y alinear textos de forma segura
+    // Inicializar vista del juego y alinear textos al centro
     const category = categories.find(c => c.key === currentCategoryKey);
-    
-    if (gameTitle) {
-        gameTitle.textContent = category ? category.label : "Juego";
-    }
-    
-    if (gameSubtitle) {
+    if (category) {
+        gameTitle.textContent = category.label;
         gameSubtitle.textContent = `Modo actual: ${currentTone.toUpperCase()}`;
+        renderPromptWithAnimation();
+    } else {
+        gameTitle.textContent = "Juego";
+        gameSubtitle.textContent = `Modo actual: ${currentTone.toUpperCase()}`;
+        activeQuestion.innerHTML = "Categoría no encontrada.";
     }
 
-    if (activeQuestion) {
-        if (category) {
-            renderPromptWithAnimation();
-        } else {
-            activeQuestion.innerHTML = "Categoría no encontrada.";
-        }
+    if (currentCategoryKey === 'interaccion') {
+        playerSetup.style.display = 'flex';
+        renderPlayerList();
+    } else {
+        playerSetup.style.display = 'none';
     }
 
-    if (playerSetup) {
-        if (currentCategoryKey === 'interaccion') {
-            playerSetup.style.display = 'flex';
-            renderPlayerList();
-        } else {
-            playerSetup.style.display = 'none';
-        }
-    }
-
-    // Cambiar Tono con animación
+    // Cambiar Tono con animación de alta dopamina
     toneButtons.forEach(button => {
         button.addEventListener('click', () => {
             toneButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
             currentTone = button.dataset.tone || 'normal';
-            
-            if (gameSubtitle) {
-                gameSubtitle.textContent = `Modo actual: ${currentTone.toUpperCase()}`;
-            }
-            
+            gameSubtitle.textContent = `Modo actual: ${currentTone.toUpperCase()}`;
             seenPrompts = [];
             renderPromptWithAnimation();
         });
@@ -79,9 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         } else {
-            const foundCategory = categories.find(c => c.key === currentCategoryKey);
-            if (!foundCategory || !foundCategory.prompts) return 'Selecciona un juego válido.';
-            pool = foundCategory.prompts.filter(item => item.tone === currentTone);
+            const category = categories.find(c => c.key === currentCategoryKey);
+            if (!category || !category.prompts) return 'Selecciona un juego válido.';
+            pool = category.prompts.filter(item => item.tone === currentTone);
         }
 
         if (!pool.length) return `No hay preguntas disponibles para el tono "${currentTone}".`;
@@ -121,14 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
             cardElement.offsetHeight; // Trigger reflow
             cardElement.style.animation = 'cardSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards';
         }
-        if (activeQuestion) {
-            activeQuestion.innerHTML = getNextPromptText();
-        }
+        activeQuestion.innerHTML = getNextPromptText();
     }
 
-    if (btnNextPrompt) {
-        btnNextPrompt.addEventListener('click', renderPromptWithAnimation);
-    }
+    btnNextPrompt.addEventListener('click', renderPromptWithAnimation);
 
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
@@ -136,15 +119,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    if (btnAddPlayer && playerNameInput) {
-        btnAddPlayer.addEventListener('click', addPlayer);
-        playerNameInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') addPlayer();
-        });
-    }
+    btnAddPlayer.addEventListener('click', addPlayer);
+    playerNameInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') addPlayer();
+    });
 
     function addPlayer() {
-        if (!playerNameInput) return;
         const name = playerNameInput.value.trim();
         if (name && !players.includes(name)) {
             players.push(name);
@@ -161,12 +141,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderPlayerList() {
-        if (!playerList) return;
         playerList.innerHTML = '';
         players.forEach(p => {
             const chip = document.createElement('div');
             chip.className = 'player-chip';
-            chip.innerHTML = `${p} <button type="button" onclick="removePlayer('${p}')">×</button>`;
+            chip.innerHTML = `${p} <button onclick="removePlayer('${p}')">×</button>`;
             playerList.appendChild(chip);
         });
     }

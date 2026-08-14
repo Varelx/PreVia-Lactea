@@ -217,8 +217,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 7px;
-  padding: 7px 7px;
+  gap: 8px;
+  padding: 8px 8px;
   border-radius: var(--card-radius);
   background: var(--card-bg);
   border: 1px solid var(--surface-border);
@@ -662,13 +662,13 @@ body {
   }
 
   .game-tile {
-    padding: 14px 16px;
-    gap: 14px;
+    padding: 8px 8px;
+    gap: 8px;
   }
 
   .tile-visual {
-    width: 42px;
-    height: 42px;
+    width: 35px;
+    height: 35px;
     font-size: 1.1rem;
     border-radius: 10px;
   }

@@ -217,8 +217,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 13px;
-  padding: 13px 13px;
+  gap: 10px;
+  padding: 10px 10px;
   border-radius: var(--card-radius);
   background: var(--card-bg);
   border: 1px solid var(--surface-border);
@@ -729,4 +729,3 @@ body {
     max-height: 50px;
   }
 }
-

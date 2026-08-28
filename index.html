@@ -1,0 +1,97 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PreVia Láctea</title>
+    <meta name="description" content="Diviértete con amigos usando PreVia Láctea: Yo nunca, Retos y mucho más.">
+    
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=4.1">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Barra superior profesional -->
+        <header class="topbar">
+            <a href="index.html" class="brand" style="text-decoration: none; color: inherit;">
+                <div class="logo" id="appLogo">
+                    <i class="fa-solid fa-champagne-glasses"></i>
+                </div>
+                <h1>PreVia Láctea</h1>
+            </a>
+        </header>
+
+        <!-- Contenido principal -->
+        <main class="content">
+            
+            <!-- Selector de Juegos -->
+            <section class="game-picker" id="gamePicker" aria-hidden="false">
+                <header class="picker-header" style="text-align: center;">
+                    <!-- Título 3D avanzado y novedoso con alta dopamina -->
+                    <h2 class="title-3d-glow">Elige un juego</h2>
+                </header>
+                
+                <nav class="tiles" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; justify-items: center;">
+                    <a href="game.html?cat=mix" class="game-tile card-dopamine" style="text-decoration: none; text-align: center;">
+                        <div class="tile-visual bg-0"><i class="fa-solid fa-shuffle"></i></div>
+                        <div class="tile-info">
+                            <strong>Mix</strong>
+                            <span class="muted">Un remix de todo</span>
+                        </div>
+                    </a>
+
+                    <!-- Resto de botones -->
+                    <a href="game.html?cat=yonunca" class="game-tile card-dopamine" style="text-decoration: none; text-align: center;">
+                        <div class="tile-visual bg-1"><i class="fa-solid fa-user-secret"></i></div>
+                        <div class="tile-info">
+                            <strong>Yo nunca</strong>
+                            <span class="muted">Secretos y confesiones</span>
+                        </div>
+                    </a>
+
+                    <a href="game.html?cat=votaciones" class="game-tile card-dopamine" style="text-decoration: none; text-align: center;">
+                        <div class="tile-visual bg-5"><i class="fa-solid fa-square-poll-vertical"></i></div>
+                        <div class="tile-info">
+                            <strong>Más probable qué...</strong>
+                            <span class="muted">Revela al grupo</span>
+                        </div>
+                    </a>
+
+                    <a href="game.html?cat=interaccion" class="game-tile card-dopamine" style="text-decoration: none; text-align: center;">
+                        <div class="tile-visual bg-6"><i class="fa-solid fa-users-rays"></i></div>
+                        <div class="tile-info">
+                            <strong>Interacción</strong>
+                            <span class="muted">Retos entre jugadores</span>
+                        </div>
+                    </a>
+
+                    <a href="game.html?cat=retos" class="game-tile card-dopamine" style="text-decoration: none; text-align: center;">
+                        <div class="tile-visual bg-3"><i class="fa-solid fa-fire"></i></div>
+                        <div class="tile-info">
+                            <strong>Retos</strong>
+                            <span class="muted">Pruebas y desafíos</span>
+                        </div>
+                    </a>
+
+                    <a href="game.html?cat=verdadshot" class="game-tile card-dopamine" style="text-decoration: none; text-align: center;">
+                        <div class="tile-visual bg-4"><i class="fa-solid fa-wine-glass-empty"></i></div>
+                        <div class="tile-info">
+                            <strong>Verdad o trago</strong>
+                            <span class="muted">Sinceridad o bebes</span>
+                        </div>
+                    </a>
+                </nav>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer" style="text-align: center;">
+            <p>Todos los derechos reservados &copy; Varelx &bull; Versión 4.1</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,751 @@
+﻿:root {
+  --bg0: #ffffff;
+  --bg1: #ffffff;
+  --bg2: #ffffff;
+  --bg3: #ffffff;
+  --accent: #ffffff;
+  --muted: #94a3b8;
+  --text: #ffffff;
+  --text-muted: #94a3b8;
+  
+  --card-radius: 16px;
+  --app-radius: 24px;
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+  
+  --bg: #05070b;
+  --app-bg: #090d16;
+  --card-bg: #101622;
+  --surface-border: rgba(255, 255, 255, 0.08);
+
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --anim-fast: 150ms ease;
+  --anim-medium: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-container {
+  position: relative;
+  width: min(850px, 100%);
+  height: min(90vh, 750px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--app-bg);
+  border-radius: var(--app-radius);
+  border: 1px solid var(--surface-border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* Topbar Profesional y Centrada */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--surface-border);
+  background: var(--app-bg);
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  font-size: 1.1rem;
+}
+
+.brand h1 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+/* Contenido Principal Alineado al Centro */
+.content {
+  flex: 1;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Selector de Juegos */
+.game-picker {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  transition: opacity var(--anim-medium), transform var(--anim-medium);
+  margin: auto;
+}
+
+.game-picker[aria-hidden="true"],
+.game-view[aria-hidden="true"] {
+  display: none;
+}
+
+.picker-header {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* Título 3D Avanzado (Sin movimiento, más grande y con gran presencia) */
+.title-3d-glow {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #ffffff 30%, #94a3b8 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.25));
+  animation: none;
+  margin-bottom: 6px;
+}
+
+.picker-shell h2,
+.picker-header h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 2px;
+  color: var(--text);
+  text-align: center;
+}
+
+.muted {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Cuadrícula a 1 columna adaptativa para ocupar toda la pantalla limpiamente */
+.tiles {
+  display: grid;
+  grid-template-columns: 1fr !important;
+  gap: 10px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.span-full {
+  grid-column: span 1 !important;
+}
+
+/* Tarjetas de alta dopamina */
+.card-dopamine {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-dopamine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card-dopamine:hover::after {
+  opacity: 1;
+}
+
+/* Botones de juego optimizados con menor altura vertical pero gran impacto visual */
+.game-tile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 8px 16px;
+  border-radius: var(--card-radius);
+  background: var(--card-bg);
+  border: 1px solid var(--surface-border);
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: transform var(--anim-medium), box-shadow var(--anim-medium), border-color var(--anim-fast);
+}
+
+.game-tile:hover {
+  transform: translateY(-3px) scale(1.01);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.1);
+}
+
+.game-tile:active {
+  transform: scale(0.97);
+}
+
+.tile-visual {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.tile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  text-align: left;
+  overflow: hidden;
+  flex: 1;
+}
+
+.tile-info strong {
+  font-size: 1.05rem;
+  color: var(--text);
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.bg-0, .bg-1, .bg-2, .bg-3, .bg-4, .bg-5, .bg-6 { 
+  background: rgba(255, 255, 255, 0.06); 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Vistas de Juego */
+.game-view {
+  width: 100%;
+  max-width: 600px;
+  animation: fadeIn var(--anim-medium) ease;
+  margin: auto;
+  text-align: center;
+}
+
+.game-shell {
+  background: var(--card-bg);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.game-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  width: 100%;
+}
+
+.game-shell h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+}
+
+#gameSubtitle {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.tone-picker {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.tone-btn, .answer-btn, .back-btn {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all var(--anim-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 40px;
+  text-align: center;
+}
+
+.tone-btn {
+  background: var(--glass);
+  color: var(--text);
+  border: 1px solid var(--glass-border);
+  flex: 1;
+}
+
+/* Botón Normal activo (Azul con sombra azulada) */
+.tone-btn[data-tone="normal"].active,
+.tone-btn.active:first-child {
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.45);
+}
+
+/* Botón Hot activo (Rojo con sombra rojiza) */
+.tone-btn[data-tone="hot"].active,
+.tone-btn.active:last-child {
+  background: #ef4444;
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 20px rgba(239, 68, 68, 0.45);
+}
+
+/* EFECTO CARTA DE BARAJA 3D (ALTA DOPAMINA) */
+.card-deck-container {
+  position: relative;
+  width: 100%;
+  margin: 10px 0;
+  perspective: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-stack-effect {
+  position: absolute;
+  width: 94%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--surface-border);
+  border-radius: 16px;
+  top: 8px;
+  left: 3%;
+  z-index: 1;
+  transform: rotate(2deg) scale(0.97);
+  pointer-events: none;
+}
+
+.dopamine-card {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(145deg, #161f30 0%, #0d121c 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 24px 20px;
+  text-align: center;
+  z-index: 2;
+  box-sizing: border-box;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+  animation: cardSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes cardSlideIn {
+  0% { opacity: 0; transform: translateY(40px) rotateX(15deg) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) rotateX(0) scale(1); }
+}
+
+.dopamine-card:hover {
+  transform: translateY(-3px) rotateX(2deg);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.card-inner-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
+
+.question-shell {
+  background: transparent;
+  border: none;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.question {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text);
+  text-align: center;
+  margin: 0;
+}
+
+.answer-actions {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.dopamine-btn {
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+  color: #000000;
+  width: 100%;
+  padding: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  min-height: 44px;
+  border-radius: 12px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.dopamine-btn:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.4);
+}
+
+.dopamine-btn:active {
+  transform: scale(0.97);
+}
+
+.back-btn {
+  background: var(--glass);
+  color: var(--text);
+  border: 1px solid var(--glass-border);
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+/* Gestión de Jugadores Centrada */
+.player-setup {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.player-input-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.player-input-row input {
+  flex: 1;
+  background: var(--app-bg);
+  border: 1px solid var(--surface-border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: var(--text);
+  font-size: 0.88rem;
+  outline: none;
+  text-align: center;
+  transition: border-color var(--anim-fast);
+}
+
+.player-input-row input:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.player-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  max-height: 80px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.player-chip {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.78rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--text);
+  text-align: center;
+}
+
+.player-chip button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  opacity: 0.7;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.player-chip button:hover {
+  opacity: 1;
+}
+
+/* Footer Minimalista Centrado */
+.footer {
+  padding: 12px 24px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.73rem;
+  border-top: 1px solid var(--surface-border);
+  background: var(--app-bg);
+  flex-shrink: 0;
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ================================================================= */
+/* RESPONSIVE AVANZADO                                               */
+/* ================================================================= */
+
+@media (max-width: 768px) {
+  body {
+    padding: 8px;
+  }
+  
+  .app-container {
+    width: 100%;
+    height: min(95vh, 800px);
+    border-radius: 18px;
+  }
+
+  .topbar {
+    padding: 14px 18px;
+  }
+
+  .content {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  html, body {
+    height: 100%;
+    height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  body {
+    padding: 0;
+    align-items: stretch;
+    justify-content: stretch;
+  }
+
+  .app-container {
+    width: 100%;
+    height: 100dvh;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+  }
+
+  .topbar {
+    padding: 12px 16px;
+  }
+
+  .brand h1 {
+    font-size: 1rem;
+  }
+
+  .logo {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+
+  .content {
+    padding: 12px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .game-picker {
+    margin: auto;
+    max-width: 100%;
+  }
+
+  .title-3d-glow {
+    font-size: 1.8rem;
+  }
+
+  .tiles {
+    grid-template-columns: 1fr !important;
+    gap: 8px;
+    padding-bottom: 8px;
+    max-width: 100%;
+  }
+
+  .span-full {
+    grid-column: span 1 !important;
+  }
+
+  .game-tile {
+    padding: 8px 12px;
+    gap: 12px;
+  }
+
+  .tile-visual {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+  }
+
+  .tile-info strong {
+    font-size: 1rem;
+  }
+
+  .game-view {
+    max-width: 100%;
+    margin: auto;
+  }
+
+  .game-shell {
+    padding: 16px;
+  }
+
+  .dopamine-card {
+    padding: 20px 16px;
+  }
+
+  .question {
+    font-size: 0.98rem;
+  }
+
+  .tone-picker {
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .tone-btn, .answer-btn, .back-btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    min-height: 38px;
+  }
+
+  .footer {
+    padding: 8px 16px;
+    font-size: 0.68rem;
+  }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+  .app-container {
+    height: 100dvh;
+    border-radius: 0;
+  }
+  
+  .content {
+    padding: 10px;
+  }
+
+  .tiles {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .player-list {
+    max-height: 50px;
+  }
+}
+
+/* Estilo cuando la voz está activada */
+.icon-btn.active {
+    background: var(--primary, #3b82f6);
+    color: #fff;
+    border-color: transparent;
+}
+
+/* Estilo activo para el botón de voz (igual que los botones principales) */
+.back-btn.active {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+}

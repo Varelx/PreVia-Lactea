@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PreVia Láctea</title>
+    <meta name="description" content="Diviértete con amigos usando PreVia Láctea: Yo nunca, Retos y mucho más.">
+    
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=4.1">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Barra superior profesional -->
+        <header class="topbar">
+            <a href="index.html" class="brand" style="text-decoration: none; color: inherit;">
+                <div class="logo" id="appLogo">
+                    <i class="fa-solid fa-champagne-glasses"></i>
+                </div>
+                <h1>PreVia Láctea</h1>
+            </a>
+        </header>
+
+        <!-- Contenido principal -->
+        <main class="content" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <section class="game-view" style="display: block; width: 100%; max-width: 600px;">
+                <article class="picker-shell game-shell" style="text-align: center;">
+                    <header class="game-header-row" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        
+                        <!-- Botón de volver (Izquierda) -->
+                        <a href="index.html" class="back-btn" style="text-decoration: none;">
+                            <i class="fa-solid fa-arrow-left"></i> Volver
+                        </a>
+
+                        <!-- Título central -->
+                        <h2 id="gameTitle" style="text-align: center; margin: 0; flex-grow: 1;">Cargando...</h2>
+
+                        <!-- Botón de voz (Derecha, idéntico al de volver) -->
+                        <button id="btnSpeak" class="back-btn" type="button" title="Activar/Desactivar voz">
+                            <i class="fa-solid fa-volume-high"></i> Voz
+                        </button>
+
+                    </header>
+
+                    <!-- Selector de tono centrado -->
+                    <div class="tone-picker" id="tonePicker" style="justify-content: center;">
+                        <button class="tone-btn active" data-tone="normal" type="button"><i class="fa-solid fa-face-smile"></i> Normal</button>
+                        <button class="tone-btn hot" data-tone="hot" type="button"><i class="fa-solid fa-fire-flame-curved"></i> Hot</button>
+                    </div>
+
+                    <div id="playerSetup" class="player-setup" style="display: none; text-align: center;">
+                        <div class="player-input-row" style="justify-content: center;">
+                            <input type="text" id="playerNameInput" placeholder="Nombre del jugador" style="text-align: center;" />
+                            <button id="btnAddPlayer" class="tone-btn" type="button"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <div id="playerList" class="player-list" style="justify-content: center;"></div>
+                    </div>
+
+                    <!-- Contenedor de preguntas -->
+                    <div class="question-shell card-deck-container" style="text-align: center;">
+                        <div class="dopamine-card" id="cardElement" style="text-align: center;">
+                            <div class="card-inner-glow"></div>
+                            <p id="activeQuestion" class="question" style="text-align: center;">Haciendo cubata...</p>
+                        </div>
+                        <footer class="answer-actions" style="justify-content: center; margin-top: 24px;">
+                            <button id="btnNextPrompt" class="answer-btn good dopamine-btn" style="text-align: center;" type="button">
+                                Siguiente <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </footer>
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <!-- Footer centrado -->
+        <footer class="footer" style="text-align: center;">
+            <p>Todos los derechos reservados &copy; Varelx &bull; Versión 4.1</p>
+        </footer>
+    </div>
+
+    <script type="module" src="script-game.js"></script> 
+</body>
+</html>

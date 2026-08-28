@@ -100,4 +100,3 @@ function nextPrompt() {
         promptCategoryBadge.style.display = 'none';
     }
 }
-

@@ -5,14 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>PreVia Láctea</title>
     <meta name="description" content="Diviértete con amigos usando PreVia Láctea: Yo nunca, Retos y mucho más.">
-    
+    <link rel="canonical" href="https://previalactea.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PreVia Láctea">
+    <meta property="og:title" content="PreVia Láctea">
+    <meta property="og:description" content="Diviértete con amigos usando PreVia Láctea: Yo nunca, Retos y mucho más.">
+    <meta property="og:url" content="https://previalactea.com/">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="PreVia Láctea">
+    <meta name="twitter:description" content="Diviértete con amigos usando PreVia Láctea: Yo nunca, Retos y mucho más.">
+
+    <!-- Preconexiones para acelerar la carga de recursos externos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
     <!-- Código de verificación de Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3825732299414999" crossorigin="anonymous"></script>
 
-    <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Iconos FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Fuentes (carga no bloqueante: se aplican al terminar de descargar) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Iconos FontAwesome (carga no bloqueante) -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
     <link rel="stylesheet" href="style.css?v=4.1">
 </head>
 <body>
@@ -22,7 +45,7 @@
         <header class="topbar">
             <a href="index.html" class="brand" style="text-decoration: none; color: inherit;">
                 <div class="logo" id="appLogo">
-                    <i class="fa-solid fa-champagne-glasses"></i>
+                    <i class="fa-solid fa-champagne-glasses" aria-hidden="true"></i>
                 </div>
                 <h1>PreVia Láctea</h1>
             </a>
@@ -40,7 +63,7 @@
                 
                 <nav class="tiles" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; justify-items: center;">
                     <a href="game.html?cat=mix" class="game-tile card-dopamine" style="text-decoration: none; text-align: center;">
-                        <div class="tile-visual bg-0"><i class="fa-solid fa-shuffle"></i></div>
+                        <div class="tile-visual bg-0"><i class="fa-solid fa-shuffle" aria-hidden="true"></i></div>
                         <div class="tile-info">
                             <strong>Mix</strong>
                             <span class="muted">Un remix de todo</span>
@@ -49,7 +72,7 @@
 
                     <!-- Resto de botones -->
                     <a href="game.html?cat=yonunca" class="game-tile card-dopamine" style="text-decoration: none; text-align: center;">
-                        <div class="tile-visual bg-1"><i class="fa-solid fa-user-secret"></i></div>
+                        <div class="tile-visual bg-1"><i class="fa-solid fa-user-secret" aria-hidden="true"></i></div>
                         <div class="tile-info">
                             <strong>Yo nunca</strong>
                             <span class="muted">Secretos y confesiones</span>
@@ -57,7 +80,7 @@
                     </a>
 
                     <a href="game.html?cat=votaciones" class="game-tile card-dopamine" style="text-decoration: none; text-align: center;">
-                        <div class="tile-visual bg-5"><i class="fa-solid fa-square-poll-vertical"></i></div>
+                        <div class="tile-visual bg-5"><i class="fa-solid fa-square-poll-vertical" aria-hidden="true"></i></div>
                         <div class="tile-info">
                             <strong>Más probable qué...</strong>
                             <span class="muted">Revela al grupo</span>
@@ -65,7 +88,7 @@
                     </a>
 
                     <a href="game.html" class="game-tile card-dopamine" style="text-decoration: none; text-align: center;">
-                        <div class="tile-visual bg-6"><i class="fa-solid fa-users-rays"></i></div>
+                        <div class="tile-visual bg-6"><i class="fa-solid fa-users-rays" aria-hidden="true"></i></div>
                         <div class="tile-info">
                             <strong>Interacción</strong>
                             <span class="muted">Retos entre jugadores</span>
@@ -73,7 +96,7 @@
                     </a>
 
                     <a href="game.html?cat=retos" class="game-tile card-dopamine" style="text-decoration: none; text-align: center;">
-                        <div class="tile-visual bg-3"><i class="fa-solid fa-fire"></i></div>
+                        <div class="tile-visual bg-3"><i class="fa-solid fa-fire" aria-hidden="true"></i></div>
                         <div class="tile-info">
                             <strong>Retos</strong>
                             <span class="muted">Pruebas y desafíos</span>
@@ -81,7 +104,7 @@
                     </a>
 
                     <a href="game.html?cat=verdadshot" class="game-tile card-dopamine" style="text-decoration: none; text-align: center;">
-                        <div class="tile-visual bg-4"><i class="fa-solid fa-wine-glass-empty"></i></div>
+                        <div class="tile-visual bg-4"><i class="fa-solid fa-wine-glass-empty" aria-hidden="true"></i></div>
                         <div class="tile-info">
                             <strong>Verdad o trago</strong>
                             <span class="muted">Sinceridad o bebes</span>
@@ -92,8 +115,6 @@
 
             <!-- Contenedor de Anuncio Discreto (Ubicado al final de la pantalla principal, antes del footer) -->
             <div class="ad-container" style="margin: 24px auto 10px auto; text-align: center; max-width: 100%; overflow: hidden;">
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3825732299414999" crossorigin="anonymous"></script>
-                <!-- Anuncio 1 -->
                 <ins class="adsbygoogle"
                      style="display:block"
                      data-ad-client="ca-pub-3825732299414999"
